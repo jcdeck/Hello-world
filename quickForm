@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+</head>
+
+<body>
+
+
+  <form action= "test_insert2.php" method= "post">
+    <table border=1px>
+      <tr>
+        <th colspan="3">Enter Workout Data</th>
+      </tr>
+        <tr>
+          <td colspan="3">
+
+              Month:<select id='selectMonth' name ="selectMonth">
+                <option value = "0" >Jan</option>
+                <option value = "1" >Feb</option>
+                <option value = "2" >Mar</option>
+                <option value = "3" >Apr</option>
+                <option value = "4" >May</option>
+                <option value = "5" >Jun</option>
+                <option value = "6" >Jul</option>
+                <option value = "7" >Aug</option>
+                <option value = "8" >Sep</option>
+                <option value = "9" >Oct</option>
+                <option value = "10" >Nov</option>
+                <option value = "11" >Dec</option>
+              </select>
+              Day:<select id = "selectDay" name = "selectDay">
+                <option value ="1">1</option>
+                <option value ="2">2</option>
+                <option value ="3">3</option>
+                <option value ="4">4</option>
+                <option value ="5">5</option>
+                <option value ="6">6</option>
+                <option value ="7">7</option>
+                <option value ="8">8</option>
+                <option value ="9">9</option>
+                <option value ="10">10</option>
+                <option value ="11">11</option>
+                <option value ="12">12</option>
+                <option value ="13">13</option>
+                <option value ="14">14</option>
+                <option value ="15">15</option>
+                <option value ="16">16</option>
+                <option value ="17">17</option>
+                <option value ="18">18</option>
+                <option value ="19">19</option>
+                <option value ="20">20</option>
+                <option value ="21">21</option>
+                <option value ="22">22</option>
+                <option value ="23">23</option>
+                <option value ="24">24</option>
+                <option value ="25">25</option>
+                <option value ="26">26</option>
+                <option value ="27">27</option>
+                <option value ="28">28</option>
+                <option value ="29">29</option>
+                <option value ="30">30</option>
+                <option value ="31">31</option>
+              </select>
+
+
+              Year:<select id = "selectYear" name="selectYear">
+                <option value =2015>2015</option>
+                <option value =2016>2016</option>
+              </select>
+
+          </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                mode:<select id="mainMenu" name = "input2" onchange="displayAccordingly()">
+                  <option value = "--" > -- </option>
+                  <option value= "Power">Power</option>
+                  <option value= "Endurance">Endurance</option>
+                  <option value= "Tempo">Tempo</option>
+                  <option value= "Test">Test</option>
+                  </select><br>
+
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div id="myDiv">type:</div>
+            </td>
+        </tr>
+          <tr>
+          	<th colspan="3">Total Workout Time</th>
+          </tr>
+          <tr>
+              <td><input type= 'text' size = '2' name = "input4"></td>
+              <td><input type= 'text' size = '2' name = "input5"></td>
+              <td><select type= 'text' size ='1' name = "input6">
+                <option value = "0" >0</option>
+                <option value = "1" >1</option>
+                <option value = "2" >2</option>
+                <option value = "3" >3</option>
+                <option value = "4" >4</option>
+                <option value = "5" >5</option>
+                <option value = "6" >6</option>
+                <option value = "7" >7</option>
+                <option value = "8" >8</option>
+                <option value = "9" >9</option>
+              </select>
+              </td>
+            </tr>
+            <tr>
+                <td>min</td>
+                <td>sec</td>
+                <td>tenths</td>
+            </tr>
+            <tr>
+              <td colspan="3">Total Meters:<input type= 'text' name = "input7"></td>
+            </tr>
+            <tr>
+              <th colspan="3">Average 500M Pace</th>
+            </tr>
+            <tr>
+                <td><input type= 'text' size = '2' name = "input8"></td>
+                <td><input type= 'text' size = '2' name = "input9"></td>
+                <td><select type= 'text' size ='1' name = "input10">
+                  <option value = "0" >0</option>
+                  <option value = "1" >1</option>
+                  <option value = "2" >2</option>
+                  <option value = "3" >3</option>
+                  <option value = "4" >4</option>
+                  <option value = "5" >5</option>
+                  <option value = "6" >6</option>
+                  <option value = "7" >7</option>
+                  <option value = "8" >8</option>
+                  <option value = "9" >9</option>
+                </select>
+                </td>
+              </tr>
+              <tr>
+                  <td>min</td>
+                  <td>sec</td>
+                  <td>tenths</td>
+              </tr>
+              <tr>
+                <td colspan="3">SPM: <input type= 'text' size = '2' name = "input11"></td>
+              </tr>
+              <tr>
+                <td colspan="3">MaxHR: <input type= 'text' size = '3' name = "input12"></td>
+              </tr>
+              <tr>
+                <td colspan="3"><input type= "submit"></td>
+              </tr>
+
+  </table>
+  </form>
+  <script type='text/javascript' >
+  //Let's make sure the page loads first..
+
+  //This script auto-selects the current date in the drop downs
+  var d = new Date();
+//  var y = "Print this after the script tags"
+//  var el = document.getElementById('insertHere');
+//  el.innerHTML = d.getDate();
+
+  var temp = d.getMonth();
+  var mySelect = document.getElementById('selectMonth');
+
+  for(var i, j = 0; i = selectMonth.options[j]; j++) {
+      if(i.value == temp) {
+          selectMonth.selectedIndex = j;
+          break;
+      }
+  }
+
+  var temp = d.getDate();
+  var mySelect = document.getElementById('selectDay');
+
+  for(var i, j = 0; i = selectDay.options[j]; j++) {
+      if(i.value == temp) {
+          selectDay.selectedIndex = j;
+          break;
+      }
+  }
+  var temp = d.getFullYear();
+  var mySelect = document.getElementById('selectYear');
+
+  for(var i, j = 0; i = selectYear.options[j]; j++) {
+      if(i.value == temp) {
+          selectYear.selectedIndex = j;
+          break;
+      }
+  }
+
+  //This script creates the conditional dropdown menu
+
+  var created = 0;
+
+      function displayAccordingly() {
+
+          if (created == 1) {
+              removeDrop();
+          }
+
+          //Call mainMenu the main dropdown menu
+          var mainMenu = document.getElementById('mainMenu');
+
+          //Create the new dropdown menu
+          var whereToPut = document.getElementById('myDiv');
+          var newDropdown = document.createElement('select');
+          newDropdown.text = "type";
+          newDropdown.setAttribute('ID',"newDropdownMenu");
+          newDropdown.setAttribute('name',"input3")
+          whereToPut.appendChild(newDropdown);
+
+          if (mainMenu.value == "Power") { //The person chose fruit
+
+              //Add an option called "500m x 8 reps"
+              var option500Mx8=document.createElement("option");
+              option500Mx8.text="500M x 8";
+              newDropdown.add(option500Mx8,newDropdown.options[null]);
+
+              //Add an option called "Pyramid"
+              var optionPyramid=document.createElement("option");
+              optionPyramid.text="Pyramid";
+              newDropdown.add(optionPyramid,newDropdown.options[null]);
+
+              //Add an option called "1000M X 4"
+              var option1000Mx4=document.createElement("option");
+              option1000Mx4.text="1000M x 4";
+              newDropdown.add(option1000Mx4,newDropdown.options[null]);
+
+          } else if (mainMenu.value == "Endurance") { //The person chose vegetabes
+
+              //Add an option called "1500M x 5 reps"
+              var option1500Mx5=document.createElement("option");
+              option1500Mx5.text="1500M x 5";
+              newDropdown.add(option1500Mx5,newDropdown.options[null]);
+
+              //Add an option called "2000M x 4 reps"
+              var option2000Mx4=document.createElement("option");
+              option2000Mx4.text="2000M x 4";
+              newDropdown.add(option2000Mx4,newDropdown.options[null]);
+
+              //Add an option called "2000M x 4 reps"
+              var option3KStepDown=document.createElement("option");
+              option3KStepDown.text="3K_2.5K_2K";
+              newDropdown.add(option3KStepDown,newDropdown.options[null]);
+
+
+          }  else if (mainMenu.value == "Tempo") { //The person chose vegetabes
+
+              //Add an option called "1500M x 5 reps"
+              var option45Min=document.createElement("option");
+              option45Min.text="45Min";
+              newDropdown.add(option45Min,newDropdown.options[null]);
+
+          } else if (mainMenu.value == "Test") { //The person chose vegetabes
+
+             //Add an option called "1500M x 5 reps"
+             var option500M=document.createElement("option");
+             option500M.text="500M";
+             newDropdown.add(option500M,newDropdown.options[null]);
+
+             //Add an option called "2000M x 4 reps"
+             var option2000M=document.createElement("option");
+             option2000M.text="2000M";
+             newDropdown.add(option2000M,newDropdown.options[null]);
+         }
+
+          created = 1
+
+      }
+
+      function removeDrop() {
+          var d = document.getElementById('myDiv');
+
+          var oldmenu = document.getElementById("newDropdownMenu");
+
+          d.removeChild(oldmenu);
+      }
+
+  </script>
+
+
+</body>
+</html>
